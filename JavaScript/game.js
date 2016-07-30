@@ -32,24 +32,6 @@ var compPieces = {
   allscissors: []}
 };
 
-function createAnewObject() {
- 
- //SEES IF TO CREATE HUMAN OR COMPUTER PIECES
- var whichObj;
- if (turn === "true") {
-  window.alert(thetype);
-  var thetype = selectedPiece.type;
-  /*humanPieces[type]["all" + type]["numOf" + type] = humanPieces[type]["make" + type]["char" + type]*/
-  var wtf = humanPieces[thetype]["all" + type]["numOf" + thetype];
-  window.alert(wtf);
- }
- else {
-  whichObj = "compPieces";
- }
-
- //whichObj.[selectedPiece.type]
- 
-}
 function createrocks() {
   
 }
@@ -67,7 +49,6 @@ function computersPieces() {
  var rockies = compPieces.rocks.numOfrocks;
  var scisseries = compPieces.scissors.numOfscissors;
  var papery = compPieces.papers.numOfpapers;
- var compSideTR = document.getElementById("boardgame").getElementsByTagName("tr");
  var statusTable = document.getElementById("status").getElementsByTagName("table")[1];
  statusTable.style.visibility = "visible";
  
@@ -78,28 +59,33 @@ var tableRow = document.getElementById("boardgame").getElementsByTagName("tr");
  for (var xxx = 0; xxx < 5; xxx++) {
   var tableR = tableRow[xxx].getElementsByTagName("td");
   for (var xx = 0; xx < 3; xx++) {
+   //Once all the pieces are set it breaks out
    if (count > maxStatusTable) {
     break;
    }
    var statusBar = statusTable.getElementsByTagName("td")[count];
    if (rockies === 0) {
     if (scisseries === 0) {
-    tableR[xx + 9].style.background = "url('levels/paper2') no-repeat center";
+    tableR[xx + 9].style.background = "url('levels/paper2') no-repeat center white";
+     tableR[xx + 9].style.backgroundSize = "contain";
     statusBar.style.background = "url('levels/paper2') no-repeat center";
     papery--;
     }
     else {
-     tableR[xx + 9].style.background = "url('levels/scissors2.jpg') no-repeat center";
+     tableR[xx + 9].style.background = "url('levels/scissors2.jpg') no-repeat center white";
+     tableR[xx + 9].style.backgroundSize = "contain";
      statusBar.style.background = "url('levels/scissors2.jpg') no-repeat center";
      scisseries--;
     }
   }
    else {
-    tableR[xx + 9].style.background = "url('levels/rock2') no-repeat center";
+    tableR[xx + 9].style.background = "url('levels/rock2') no-repeat center white";
+    tableR[xx + 9].style.backgroundSize = "contain";
     statusBar.style.background = "url('levels/rock2') no-repeat center";
     rockies--;
    }
    statusBar.style.backgroundSize = "contain";
+   statusBar.style.backgroundColor= "white";
    count++;
    }
   }
@@ -280,9 +266,7 @@ function createEvents() {
 //CREATES THE BOARD
 function createBoard() {
  var trow = document.getElementsByTagName("tr");
- var tcell = document.getElementsByTagName("td");
  var board = document.getElementsByTagName("table")[0];
- var gamesize = 8;
   for (var i = 0; i < 4; i++) {
    board.appendChild(trow[i].cloneNode(true));
   }
