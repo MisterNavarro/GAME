@@ -1,4 +1,4 @@
-//CONSTRUCTOR TO HANDLE THE PLAYERS SELECTIONS
+// TO HANDLE THE PLAYERS SELECTIONS
 var selectedPiece = {
  pieceImg: "",
  type: "",
@@ -105,6 +105,7 @@ var tableRow = document.getElementById("boardgame").getElementsByTagName("tr");
 }
  
 function userAddsGamePiece() {
+ 
  //CHECKS TO MAKE SURE ITS A YELLOW BACKGROUND
  if (this.style.backgroundColor === "yellow") {
   
