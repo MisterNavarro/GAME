@@ -8,8 +8,7 @@ var selectedPiece = {
 //WHOS TURN IT IS
 var turn = true;
 
-//HUMAN PIECES, HOW MANY OF WHICH THEY HAVE, AND MAKES OBJECTS OF THEM 
-var humanPieces = { 
+var humanPieces = {
  rocks: { 
   numOfrocks: 0,
   allrocks:[]},
@@ -63,45 +62,47 @@ function computersPieces() {
  //FINDS THE APPROPRIATE PIECES FOR THE GAME
  compPieces.papers.numOfpapers = humanPieces.rocks.numOfrocks;
  compPieces.scissors.numOfscissors = humanPieces.papers.numOfpapers;
- compPieces.rocks.numOfrocks = compPieces.scissors.numOfscissors;
+ compPieces.rocks.numOfrocks = humanPieces.scissors.numOfscissors;
  
  var rockies = compPieces.rocks.numOfrocks;
  var scisseries = compPieces.scissors.numOfscissors;
  var papery = compPieces.papers.numOfpapers;
  var compSideTR = document.getElementById("boardgame").getElementsByTagName("tr");
- var statusBar = document.getElementById("status").getElementsByTagName("table")[1];
- statusBar.style.visibility = "visible";
+ var statusTable = document.getElementById("status").getElementsByTagName("table")[1];
+ statusTable.style.visibility = "visible";
  
  var count = 0;
- 
+ var maxStatusTable = 9;
  //ADDS THE COMPUTERS PIECES
 var tableRow = document.getElementById("boardgame").getElementsByTagName("tr");
  for (var xxx = 0; xxx < 5; xxx++) {
   var tableR = tableRow[xxx].getElementsByTagName("td");
   for (var xx = 0; xx < 3; xx++) {
-   statusBar = statusBar.getElementsByTagName("td")[count];
+   if (count > maxStatusTable) {
+    break;
+   }
+   var statusBar = statusTable.getElementsByTagName("td")[count];
    if (rockies === 0) {
-   if (scisseries === 0) {
+    if (scisseries === 0) {
     tableR[xx + 9].style.background = "url('levels/paper2') no-repeat center";
     statusBar.style.background = "url('levels/paper2') no-repeat center";
     papery--;
-   }
+    }
+    else {
+     tableR[xx + 9].style.background = "url('levels/scissors2.jpg') no-repeat center";
+     statusBar.style.background = "url('levels/scissors2.jpg') no-repeat center";
+     scisseries--;
+    }
+  }
    else {
     tableR[xx + 9].style.background = "url('levels/rock2') no-repeat center";
     statusBar.style.background = "url('levels/rock2') no-repeat center";
-    scisseries--;
-   }
-  }
-   else {
-    tableR[xx + 9].style.background = "url('levels/scissors2.jpg') no-repeat center";
-    statusBar.style.background = "url('levels/scissors2.jpg') no-repeat center";
     rockies--;
    }
    statusBar.style.backgroundSize = "contain";
    count++;
    }
   }
-  
 }
  
 function userAddsGamePiece() {
