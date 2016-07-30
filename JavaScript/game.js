@@ -140,7 +140,7 @@ function userAddsGamePiece() {
    break;
    }
   }
-  
+  //chia
   selectedPiece.amountPlaced++;
  
  //WHEN ALL 10 PIECES ARE PLACED ON THE BOARD
