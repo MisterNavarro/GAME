@@ -2,7 +2,8 @@
 var selectedPiece = {
  pieceImg: "",
  type: "",
- amountPlaced: 0
+ amountPlaced: 0,
+ explainCount: 0
 };
 
 //WHOS TURN IT IS
@@ -66,22 +67,22 @@ var tableRow = document.getElementById("boardgame").getElementsByTagName("tr");
    var statusBar = statusTable.getElementsByTagName("td")[count];
    if (rockies === 0) {
     if (scisseries === 0) {
-    tableR[xx + 9].style.background = "url('levels/paper2') no-repeat center white";
+    tableR[xx + 9].style.background = "url('levels/paper2.jpg') no-repeat center white";
      tableR[xx + 9].style.backgroundSize = "contain";
-    statusBar.style.background = "url('levels/paper2') no-repeat center";
+    statusBar.style.background = "url('levels/paper2.jpg') no-repeat center white";
     papery--;
     }
     else {
      tableR[xx + 9].style.background = "url('levels/scissors2.jpg') no-repeat center white";
      tableR[xx + 9].style.backgroundSize = "contain";
-     statusBar.style.background = "url('levels/scissors2.jpg') no-repeat center";
+     statusBar.style.background = "url('levels/scissors2.jpg') no-repeat center white";
      scisseries--;
     }
   }
    else {
-    tableR[xx + 9].style.background = "url('levels/rock2') no-repeat center white";
+    tableR[xx + 9].style.background = "url('levels/rock2.jpg') no-repeat center white";
     tableR[xx + 9].style.backgroundSize = "contain";
-    statusBar.style.background = "url('levels/rock2') no-repeat center";
+    statusBar.style.background = "url('levels/rock2.jpg') no-repeat center white";
     rockies--;
    }
    statusBar.style.backgroundSize = "contain";
@@ -222,17 +223,17 @@ function OfSelected() {
   if (allImgages[zz].style.border === "3px solid red") {
    switch(zz) {
     case 0: {
-     selectedPiece.pieceImg = "url('levels/rock2') no-repeat center";
+     selectedPiece.pieceImg = "url('levels/rock2.jpg') no-repeat center white";
      selectedPiece.type = "rocks";
      break;
     }
     case 1: {
-     selectedPiece.pieceImg = "url('levels/paper2') no-repeat center";
+     selectedPiece.pieceImg = "url('levels/paper2.jpg') no-repeat center white";
      selectedPiece.type = "papers";
      break;
     }
     case 2: {
-     selectedPiece.pieceImg = "url('levels/scissors2.jpg') no-repeat center";
+     selectedPiece.pieceImg = "url('levels/scissors2.jpg') no-repeat center white";
      selectedPiece.type = "scissors";
      break;
     }
@@ -247,8 +248,10 @@ function OfSelected() {
 //SHOWS OR HIDES THE EXPLANATION CONTENT
 function ShowOrHideExp() {
   var explainCont = document.getElementById("explain");
+  //CHECKS TO SEE IF IT NEEDS TO HIDE OR SHOW THE ELEMENT
   if (explainCont.style.display === "none") {
    explainCont.style.display = "block";
+      changeContent();
   }
   else {
    explainCont.style.display = "none";
@@ -256,7 +259,15 @@ function ShowOrHideExp() {
 }
 
 function changeContent() {
-
+    if (this.value === "BACK") {
+        selectedPiece.explainCount-= 2;
+    }
+ var i = selectedPiece.explainCount;
+ var pairGraph = document.getElementById("explain").getElementsByTagName("p");
+ var explainImg = document.getElementById("explain").getElementsByTagName("img")[0];
+    explainImg.style.background = ("url(levels/explain" + i + ".jpg)");
+    explainImg.style.background = "contain";
+selectedPiece.explainCount++;
 }
 //ADDS THE EVENTS
 function createEvents() {
@@ -295,7 +306,6 @@ function createEvents() {
  }
 }
 
-
 //CREATES THE BOARD
 function createBoard() {
  var trow = document.getElementsByTagName("tr");
@@ -309,7 +319,6 @@ function createBoard() {
  }
  }
 
- 
 //SETS UP THE PAGE AND THE FUNCTIONS
 function setUpPage() {
  createBoard();

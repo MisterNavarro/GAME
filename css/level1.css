@@ -1,12 +1,14 @@
 * {
-    padding: 0;
-    margin: 0;
-    border: none;
+    padding : 0;
+    margin  : 0;
+    border  : none;
 }
 /*TABLE INSIDE OF A TABLE TO SHOW THE AMOUNT OF UPGRADES EACH CHARACTER HAS RECEIVED*/
 body{
     width:100%;
-    background-image: url("../levels/alienterrain.jpg");
+    background-image: url("../levels/map.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 h1{
     text-align: center;
@@ -14,6 +16,9 @@ h1{
     padding: 1% 0;
     font-size: 250%;
     color:white;
+}
+img {
+    background-size: contain;
 }
 #nav {
     width:100%;
@@ -92,7 +97,6 @@ h1{
     height:350px;
     overflow: auto;
     float:right;
-    background-image: url("../levels/boardcreation.JPG");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -115,13 +119,13 @@ h1{
 #gameContainer {
     width:100%;
     overflow: auto;
-    background-image: url("../levels/terrain.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     clear: both;
 }
 #boardgame {
     float:right;
+    margin-right: 10%;
     width: 80%;
     border-collapse: collapse;
 }
@@ -152,6 +156,7 @@ h1{
     width: 20%;
 }
 #characters table {
+    display : none;
     visibility: hidden;
     float:right;
     width: 55%;
@@ -172,12 +177,12 @@ h1{
     border: 3px solid black;
 }
 #characters img:nth-child(3) {
-    background-image: url("../levels/rock2");
+    background-image: url("../levels/rock2.jpg");
     background-repeat: no-repeat;
     background-size: contain;
 }
 #characters img:nth-child(6) {
-    background-image: url("../levels/paper2");
+    background-image: url("../levels/paper2.jpg");
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -192,6 +197,7 @@ h1{
     background-color: yellow;
 }
 #messageBox {
+    display : none;
     width: 20%;
     z-index: 3;
     position: absolute;
@@ -203,9 +209,9 @@ h1{
     color:white;
 }
 #upgrades {
+    display : none;
     width: 100%;
     clear: both;
-    display: none;
 }
 #upgrades figure {
     float:left;
