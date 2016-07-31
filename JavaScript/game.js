@@ -8,7 +8,7 @@ var selectedPiece = {
 
 //WHOS TURN IT IS
 var turn = true;
-
+//HUMANS CHARACTER SELECTION
 var humanPieces = {
     rocks: {
         numOfrocks: 0,
@@ -20,7 +20,7 @@ var humanPieces = {
         numOfscissors: 0,
         allscissors: []}
 };
-
+//COMPUTERS CHARACTER SELECTION
 var compPieces = {
     rocks: {
         numOfrocks: 0,
@@ -32,13 +32,6 @@ var compPieces = {
         numOfscissors: 0,
         allscissors: []}
 };
-
-function createrocks() {
-
-}
-function createpapers() {}
-function createscissors() {}
-
 //ADDS COMPUTER PIECE IMAGE TO THE SELECTED SQUARE
 function computersPieces() {
 
@@ -219,7 +212,6 @@ function OfSelected() {
 
     //FINDS OUT WHAT IMAGE WAS SELECTED
     for (var zz = 0; zz < 3; zz++) {
-
         if (allImgages[zz].style.border === "3px solid red") {
             switch(zz) {
                 case 0: {
@@ -244,16 +236,56 @@ function OfSelected() {
     ShowFreeSpots();
 
 }
+//THIS FUNCTION CONTAINS THE PARAGRAPHS FOR THE STORY LINE
+function ParagraphForStoryLine(num) {
+    var story = [];
+    story[0] = "My first (but not last) game created with HTML, CSS, & JAVASCRIPT.<br>" +
+        "It was a fun adventure creating this game but man can the simplest things " +
+        "we take granted in life can create a migrane when turning it to code.";
+    story [1] = "I first began creating my game board.<br>" +
+        "Not too big, but not too small. I used JavaScript to show a little bit about" +
+        "creating elements by cloning a table row and making 1 table row to 5 table rows.";
+    story [2] = "I was so excited when I first started creating the game, I wanted to add levels" +
+        "for each characters, I wanted to give them each different movements, range, HP's, and so on." +
+        "The more I became invested in it the farther behind I became. All these ideas started but none completed.";
+    story[3] = "Had to rethink of this game and go back to basics. First step is choosing your characters. I decided" +
+        "to use an object to hold the users selections. To choose which piece they wanted and where they were going" +
+        "to place each character.";
+    story[4] = "Once the user chooses the character I had a function to run and show on the table which " +
+        "square pieces where allowed, by using a \"for\" loop and adding yellow backgrounds to them with events" +
+        "I used this function everytime a piece was placed.";
+    story[5] =  "I added the images the images to the table data that was calling the function when it was clicked." +
+        "I used the \"this\" keyword to recognize which element I needed to add the image to and added a class name" +
+        "to the table data to recognize which piece is human and which is the computer.";
+    story[6] = "I then saved how many pieces the user chose in an object that has a subset for each character type. " +
+        "This way I would be able to choose which computer pieces to add to the table off of the selection the user" +
+        "made.";
+    story[7] = "Unfortunately time has ran out, what is going to be an amazing game, is only lots of small features" +
+        "to show my JavaScript skills. It's the beginning of my next chapter in the technology world, and a great" +
+        "decision on the class. Thank you and hope I commented all the code to make things more understandable.";
+   //PLAYS THE CORRECT PARAGRAPH
+    document.getElementById("explain").getElementsByTagName("p")[0].innerHTML = story[num];
+}
 
+//THE BUTTONS TO CHANGE THE CONTENT ON THE CLASS EXPLANATION
 function changeContent() {
+    //IF THE BACK BUTTON IS PRESSED GO BACK A SPACE
     if (this.value === "BACK") {
-        selectedPiece.explainCount-= 2;
+        //makes sure that the count falls to the negatives
+        if (!(selectedPiece.explainCount === 0 ||  1)) {
+            selectedPiece.explainCount-= 2;
+        }
+    }
+    //STARTS TO THE BEGINNING IF IT HIT THE END
+    if (selectedPiece.explainCount === 7) {
+        selectedPiece.explainCount = 0;
     }
     var i = selectedPiece.explainCount;
-    var pairGraph = document.getElementById("explain").getElementsByTagName("p");
     var explainImg = document.getElementById("explain").getElementsByTagName("img")[0];
+    storyLine = ParagraphForStoryLine(i);
     explainImg.style.background = ("url(levels/explain" + i + ".jpg)");
-    explainImg.style.background = "contain";
+    explainImg.style.backgroundSize = "contain";
+    explainImg.style.backgroundRepeat = "no-repeat";
     selectedPiece.explainCount++;
 }
 
@@ -326,7 +358,7 @@ function ShowOrHideCont() {
     var currentContainer;
     var whatsthis = this.innerHTML.toLowerCase();
 
-    //FINDS OUT WHICH IS UP AND WHICH CALLED THE FUNCTION.
+    //FINDS OUT WHICH ELEMENT TO SHOW FROM THE "LI" BUTTON
     if (whatsthis === "rules") {
         currentContainer = document.getElementById("rules");
         activeContainer = document.getElementById("explain");
@@ -335,10 +367,13 @@ function ShowOrHideCont() {
         activeContainer = document.getElementById("rules");
         currentContainer = document.getElementById("explain");
     }
+    //CHECKS TO SEE IF THE BUTTON WAS PRESSED TO HIDE THE CONTENT OR TO SHOW IT
     if (currentContainer.style.display === "none") {
         currentContainer.style.display = "block";
         activeContainer.style.display = "none";
         if (currentContainer === document.getElementById("explain")) {
+            //IF THE EXPLAIN WAS PRESSED, RESETS THE STORY AND PLAYS THE CONTENT
+            selectedPiece.amountPlaced = 0;
             changeContent();
         }
     }
