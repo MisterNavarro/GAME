@@ -38,7 +38,7 @@ function createrocks() {
 function createpapers() {}
 function createscissors() {}
  
-//ADDS THE IMAGE TO THE SELECTED SQUARE
+//ADDS COMPUTER PIECE IMAGE TO THE SELECTED SQUARE
 function computersPieces() {
  
  //FINDS THE APPROPRIATE PIECES FOR THE GAME
@@ -90,7 +90,8 @@ var tableRow = document.getElementById("boardgame").getElementsByTagName("tr");
    }
   }
 }
- 
+
+//ADDS SELECTED PIECE TO THE SELECTED SQUARE
 function userAddsGamePiece() {
  
  //CHECKS TO MAKE SURE ITS A YELLOW BACKGROUND
@@ -174,8 +175,7 @@ function userAddsGamePiece() {
 
 //SHOWS THE FREE SPOTS TO PLACE THE ITEMS AT
 function ShowFreeSpots() {
- 
- 
+
  //ADDS OR REMOVES EVENTS TO THE SELECTED TD AREAS
  var tableRow = document.getElementById("boardgame").getElementsByTagName("tr");
  for (var xxx = 0; xxx < 5; xxx++) {
@@ -202,7 +202,6 @@ function ShowFreeSpots() {
    }
   } 
  }
-
 }
 
 //HOLDS THE VALUE TO MAKE IT EASIER FOR THE HUMAN TO CHOOSE 
@@ -245,6 +244,20 @@ function OfSelected() {
 
 }
 
+//SHOWS OR HIDES THE EXPLANATION CONTENT
+function ShowOrHideExp() {
+  var explainCont = document.getElementById("explain");
+  if (explainCont.style.display === "none") {
+   explainCont.style.display = "block";
+  }
+  else {
+   explainCont.style.display = "none";
+  }
+}
+
+function changeContent() {
+
+}
 //ADDS THE EVENTS
 function createEvents() {
  
@@ -259,6 +272,26 @@ function createEvents() {
   for (var y = 0; y < 3; y++) {
   imgStart[y].attachEvent("onclick", OfSelected);
   }
+ }
+
+ //ALLOWS THE CLASS EXPLAIN TO BE AN ACTIVE BUTTON
+ var explained = document.getElementById("nav").getElementsByTagName("li")[2];
+ if (explained.addEventListener) {
+  explained.addEventListener("click", ShowOrHideExp, false);
+ }
+ else if (explained.attachEvent) {
+  explained.attachEvent("onclick", ShowOrHideExp);
+ }
+
+ //THE BUTTON FEATURES IN THE EXPLAIN CONTAINER
+ var expButtons = document.getElementById("explain").getElementsByTagName("input");
+ if (expButtons[0].addEventListener) {
+  expButtons[0].addEventListener("click", changeContent, false);
+  expButtons[1].addEventListener("click", changeContent, false);
+ }
+ else if (expButtons[0].attachEvent) {
+  expButtons[0].attachEvent("onclick", changeContent);
+  expButtons[1].attachEvent("onclick", changeContent);
  }
 }
 

@@ -1,237 +1,236 @@
 * {
- padding: 0px;
- margin: 0px 0px;
- border: none;
-} 
+    padding: 0;
+    margin: 0;
+    border: none;
+}
 /*TABLE INSIDE OF A TABLE TO SHOW THE AMOUNT OF UPGRADES EACH CHARACTER HAS RECEIVED*/
 body{
- width:100%;
- background-image: url("../levels/alienterrain.jpg");
+    width:100%;
+    background-image: url("../levels/alienterrain.jpg");
 }
 h1{
- text-align: center;
- width:100%;
- padding: 1% 0%;
- font-size: 250%;
- color:white;
+    text-align: center;
+    width:100%;
+    padding: 1% 0;
+    font-size: 250%;
+    color:white;
 }
 #nav {
- width:100%;
+    width:100%;
 }
 #nav ul{
- text-align: center;
- list-style-type: none;
- text-decoration: none;
+    text-align: center;
+    list-style-type: none;
+    text-decoration: none;
 }
 #nav ul li {
- background-color: black;
- display: inline-block;
- width:20%;
- padding:1%;
- font-weight: bold;
- color:white;
- font-size: 150%;
- text-align: center;
+    background-color: black;
+    display: inline-block;
+    width:20%;
+    padding:1%;
+    font-weight: bold;
+    color:white;
+    font-size: 150%;
+    text-align: center;
 }
-#rules { 
- z-index: 2;
- position: absolute;
- width:100%;
- display: none;
- overflow: auto;
- background-color: silver;
+#rules {
+    z-index: 2;
+    position: absolute;
+    width:100%;
+    display: none;
+    overflow: auto;
+    background-color: silver;
 }
 #rules h3{
- text-align: center;
- margin: 0 auto;
- width: 30%;
- display: block;
- font-size: 300%;
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+    display: block;
+    font-size: 300%;
 }
 #rules p{
- margin: 0 auto;
- width: 80%; 
- padding: 2%;
- background-color: beige;
- line-height: 200%;
- font-size: 150%;
+    margin: 0 auto;
+    width: 80%;
+    padding: 2%;
+    background-color: beige;
+    line-height: 200%;
+    font-size: 150%;
 }
 #rules ul {
- text-align: center;
- list-style-type: none;
- width: 100%;
+    text-align: center;
+    list-style-type: none;
+    width: 100%;
 }
 #rules ul li {
- display: inline-block;
- padding:1%;
- border:solid black;
- font-size: 200%;
- width: 29%;
+    display: inline-block;
+    padding:1%;
+    border:solid black;
+    font-size: 200%;
+    width: 29%;
 }
 #explain {
- display: none;
- position: absolute;
- background-color:black; 
- width: 100%;
- height: 400px;
- z-index: 10;
- padding: 1%;
+    display: none;
+    position: absolute;
+    background-color:black;
+    width: 100%;
+    height: 400px;
+    z-index: 10;
+    padding: 1%;
 }
 #explain p{
- width:45%;
- padding: 1%;
- font-size: 150%;
- color:white;
- line-height: 2em;
- float:left;
- overflow: auto;
- font-weight: bold;
+    width:40%;
+    padding: 1%;
+    font-size: 150%;
+    color:white;
+    line-height: 2em;
+    float:left;
+    overflow: auto;
+    font-weight: bold;
 }
 #explain img{
- width: 750px;
- height:350px;
- overflow: auto;
- float:right;
- background-image: url("../levels/boardcreation.JPG");
- background-repeat: no-repeat;
- background-size: contain;
- background-position: center;
- background-color: black;
+    width: 750px;
+    height:350px;
+    overflow: auto;
+    float:right;
+    background-image: url("../levels/boardcreation.JPG");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: black;
 }
 #explain input{
- padding: 2%;
- width:20%;
- font-size: 1.5em;
- font-weight: bold;
- border: 10px solid black;
- margin-left: 1%;
- position: absolute;
- bottom:0;
- left: 0;
+    width:25%;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 5px solid black;
+    position: absolute;
+    bottom:0;
+}
+#explain input:nth-child(odd) {
+    left: 0;
 }
 #explain input:last-child{
- left:25%;
+    right:0;
 }
 #gameContainer {
- width:100%;
- overflow: auto;
-background-image: url("../levels/terrain.jpg");
- background-repeat: no-repeat;
- background-size: cover;
- clear: both;
+    width:100%;
+    overflow: auto;
+    background-image: url("../levels/terrain.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    clear: both;
 }
 #boardgame {
- float:right;
- width: 80%;
- background-color: none;
- border-collapse: collapse;
+    float:right;
+    width: 80%;
+    border-collapse: collapse;
 }
 #boardgame td {
- width:50px;
- height:75px;
- border: 2px solid black;
+    width:50px;
+    height:75px;
+    border: 2px solid black;
 }
 #status {
- clear: both;
- float:right;
- width: 80%;
- visibility: hidden;
+    clear: both;
+    float:right;
+    width: 80%;
+    visibility: hidden;
 }
 #status table {
- width:50%;
- float:left;
- padding: 2%;
- text-align: center;
+    width:50%;
+    float:left;
+    padding: 2%;
+    text-align: center;
 }
 #status td {
- padding:4%;
- border: 1px solid pink;
- width:1%;
- background-color: white;
+    padding:4%;
+    border: 1px solid pink;
+    width:1%;
+    background-color: white;
 }
 #characters {
- width: 20%;
+    width: 20%;
 }
 #characters table {
- visibility: hidden;
- float:right;
- width: 55%;
- margin: 7% 2%;
+    visibility: hidden;
+    float:right;
+    width: 55%;
+    margin: 7% 2%;
 }
 #characters td {
- border: 1px solid orange;
+    border: 1px solid orange;
 }
 .cname {
- width:20%;
- font-size: 1.3em;
- color: white;
+    width:20%;
+    font-size: 1.3em;
+    color: white;
 }
 #characters img {
- width:39%;
- background-position: center;
- background-color: white;
- border: 3px solid black;
+    width:39%;
+    background-position: center;
+    background-color: white;
+    border: 3px solid black;
 }
 #characters img:nth-child(3) {
- background-image: url("../levels/rock2");
- background-repeat: no-repeat;
- background-size: contain;
+    background-image: url("../levels/rock2");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 #characters img:nth-child(6) {
- background-image: url("../levels/paper2");
- background-repeat: no-repeat;
- background-size: contain;
+    background-image: url("../levels/paper2");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 #characters img:nth-child(8) {
- background-image: url("../levels/scissors2.jpg");
- background-repeat: no-repeat;
- background-size: contain;
+    background-image: url("../levels/scissors2.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 #characters td {
- width: 5px;
- height: 20px;
- background-color: yellow;
+    width: 5px;
+    height: 20px;
+    background-color: yellow;
 }
 #messageBox {
- width: 20%;
- z-index: 3;
- position: absolute;
- text-align: center;
+    width: 20%;
+    z-index: 3;
+    position: absolute;
+    text-align: center;
 }
 #messageBox p{
- width:100%;
- font-size: 2em;
- color:white;
+    width:100%;
+    font-size: 2em;
+    color:white;
 }
 #upgrades {
- width: 100%;
- clear: both;
- display: none;
+    width: 100%;
+    clear: both;
+    display: none;
 }
 #upgrades figure {
- float:left;
- width:30%;
- background-color: white;
+    float:left;
+    width:30%;
+    background-color: white;
 }
 #upgrades img {
- width: 100%;
- background-color: white;
+    width: 100%;
+    background-color: white;
 }
 #upgradesT {
-width: 70%;
-float: right;
+    width: 70%;
+    float: right;
 }
 #upgradesT table{
- width: 100%;
+    width: 100%;
 }
 #upgradesT th{
- width:10%; 
- padding:2%;
- color:white;
- background-color: black;
+    width:10%;
+    padding:2%;
+    color:white;
+    background-color: black;
 }
 #upgradesT td{
- width:10%;
- background-color: chartreuse;
- border: 2px solid yellow;
+    width:10%;
+    background-color: chartreuse;
+    border: 2px solid yellow;
 }
