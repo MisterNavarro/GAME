@@ -110,7 +110,7 @@ img {
     position: absolute;
     bottom:0;
 }
-#explain input:nth-child(odd) {
+#explain input:first-child {
     left: 0;
 }
 #explain input:last-child{

@@ -267,28 +267,38 @@ function ParagraphForStoryLine(num) {
     document.getElementById("explain").getElementsByTagName("p")[0].innerHTML = story[num];
 }
 
+//BACK BUTTON EVENT GOES 1 BACK AND MAKES SURE IF ITS THE FIRST PAGE TO GO TO THE LAST PAGE
+function changeContentBACK() {
+    //makes sure that the count falls to the negatives
+    if (!(selectedPiece.explainCount === 0)) {
+        selectedPiece.explainCount--;
+    }
+    else {
+        selectedPiece.explainCount = 8;
+    }
+    changeContent();
+}
 //THE BUTTONS TO CHANGE THE CONTENT ON THE CLASS EXPLANATION
 function changeContent() {
-    //IF THE BACK BUTTON IS PRESSED GO BACK A SPACE
-    if (this.value === "BACK") {
-        //makes sure that the count falls to the negatives
-        if (!(selectedPiece.explainCount === 0 ||  1)) {
-            selectedPiece.explainCount-= 2;
-        }
-    }
     //STARTS TO THE BEGINNING IF IT HIT THE END
-    if (selectedPiece.explainCount === 7) {
+    if (selectedPiece.explainCount === 8) {
         selectedPiece.explainCount = 0;
     }
     var i = selectedPiece.explainCount;
     var explainImg = document.getElementById("explain").getElementsByTagName("img")[0];
-    storyLine = ParagraphForStoryLine(i);
+
+    ParagraphForStoryLine(i);
+    //ADDS THE IMAGE TO THE NEXT STORY LINE AND ADDS A 1 COUNTER AFTER EVERY FUNCTION CALL
     explainImg.style.background = ("url(levels/explain" + i + ".jpg)");
     explainImg.style.backgroundSize = "contain";
     explainImg.style.backgroundRepeat = "no-repeat";
+    explainImg.style.backgroundPosition = "center";
     selectedPiece.explainCount++;
 }
 
+function showNewGame() {
+    location.reload();
+}
 //ADDS THE EVENTS
 function createEvents() {
 
@@ -316,13 +326,22 @@ function createEvents() {
 
     //THE BUTTON FEATURES IN THE EXPLAIN CONTAINER
     var expButtons = document.getElementById("explain").getElementsByTagName("input");
+    expButtons[0].style.visibility = "hidden";
     if (expButtons[0].addEventListener) {
-        expButtons[0].addEventListener("click", changeContent, false);
         expButtons[1].addEventListener("click", changeContent, false);
+        expButtons[0].addEventListener("click", changeContentBACK, false);
     }
     else if (expButtons[0].attachEvent) {
-        expButtons[0].attachEvent("onclick", changeContent);
         expButtons[1].attachEvent("onclick", changeContent);
+        expButtons[0].attachEvent("onclick", changeContentBACK);
+    }
+    //EVENT FOR THE NEW GAME BUTTON
+    var newGame = document.getElementById("nav").getElementsByTagName("li")[0];
+    if (newGame.addEventListener) {
+        newGame.addEventListener("click", showNewGame, false);
+    }
+    else if (newGame.attachEvent) {
+        newGame.attachEvent("onclick", showNewGame);
     }
 }
 //CREATES THE BOARD
