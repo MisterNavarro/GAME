@@ -176,21 +176,23 @@ img {
     background-color: white;
     border: 3px solid black;
 }
-#characters img:nth-child(3) {
+#characters img:nth-child(2) {
     background-image: url("../levels/rock2.jpg");
     background-repeat: no-repeat;
     background-size: contain;
 }
-#characters img:nth-child(6) {
-    background-image: url("../levels/paper2.jpg");
+#characters img:nth-child(4) {
+    background-image : url("../levels/paper2.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size : contain;
 }
-#characters img:nth-child(8) {
+#characters img:nth-child(6) {
     background-image: url("../levels/scissors2.jpg");
     background-repeat: no-repeat;
     background-size: contain;
 }
+/*-----------------CSS CONTENTS FOR FUTURE ADD ONS FOR THE GAME-------------------------------------*/
+/*
 #characters td {
     width: 5px;
     height: 20px;
@@ -240,3 +242,4 @@ img {
     background-color: chartreuse;
     border: 2px solid yellow;
 }
+*/
